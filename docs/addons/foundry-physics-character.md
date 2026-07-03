@@ -74,15 +74,13 @@ for this behavior.
 ### State
 
 - Can jump.
-- Is falling.
-- Is jumping.
-- Is moving.
-- Is on floor.
+- Ground state is (`on-ground`, `on-steep-ground`, `not-supported`, `in-air`).
 
 ### Collision context
 
-- Is on given platform.
 - Is colliding with object.
+- On collision with object.
+- On collision ended with object.
 
 ## Character actions
 

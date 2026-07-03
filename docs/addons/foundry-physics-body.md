@@ -83,8 +83,7 @@ safe shape and logs a warning.
 
 ### Collision triggers
 
-- On collision begin.
-- On collision end.
+- Is colliding with object.
 - On collision with object.
 - On collision ended with object.
 
@@ -198,7 +197,7 @@ Two bodies collide only if both checks pass:
 1. Dynamic prop:
 	set body type dynamic, set collider shape, tune mass and damping.
 2. Trigger volume:
-	set Is trigger true and react via collision begin/end triggers.
+	set Is trigger true and react via object-scoped collision triggers.
 3. Projectile body:
 	enable bullet treatment and use impulse toward target position.
 

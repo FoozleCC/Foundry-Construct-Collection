@@ -1,8 +1,7 @@
 # <img class="addon-heading" src="/foundry-camera.svg" alt="Foundry Camera icon"> Foundry Camera
 
 The Foundry Camera plugin controls the layout camera in 3D with runtime mode
-switching, target management, transitions, obstruction handling, shake, and
-profiles.
+switching, target management, transitions, obstruction handling, and shake.
 
 ## Install and dependencies
 
@@ -102,14 +101,9 @@ Enables runtime debug output and diagnostics.
 - On obstruction hit
 - On obstruction clear
 
-### Shake and profiles
+### Shake
 
 - Is shaking
-- Has profile
-
-### Debug
-
-- Debug self-test passed
 
 ## Camera actions
 
@@ -175,17 +169,10 @@ Enables runtime debug output and diagnostics.
 - Start shake: add trauma value.
 - Stop shake: clear active trauma.
 
-### Profiles
-
-- Save profile: snapshot current camera settings by name.
-- Load profile: restore saved camera settings.
-- Delete profile: remove saved profile.
-
 ### Debug
 
 - Set debug: toggle diagnostics.
 - Debug dump state: print runtime camera state.
-- Run ACE smoke test: validate camera ACE behavior.
 
 ## Camera expressions
 
@@ -219,11 +206,9 @@ Enables runtime debug output and diagnostics.
 - Indexed hit accessors: `HitXAt(index)` through `HitBodyNameAt(index)`.
 - JSON payloads: `ClosestHitJSON`, `HitsJSON`.
 
-### Shake, profiles, debug
+### Shake
 
 - `ShakeTrauma`.
-- `ProfileCount`.
-- `DebugSelfTestPassed`, `DebugSelfTestFailures`, `DebugSelfTestTime`.
 
 ## Typical usage
 
