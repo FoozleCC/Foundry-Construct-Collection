@@ -120,9 +120,12 @@ Use this group to update collider dimensions at runtime.
 - Simulate jump.
 - Simulate stick.
 - Set forward angle.
+- Set movement vector X/Y/Z together or one component at a time.
 - Teleport.
 
-Use this group every tick to feed player input into the controller.
+Use this group every tick to feed player input into the controller. Movement
+vector actions set exact world-space velocity in px/s for one tick and bypass
+the normal acceleration curve, which is useful for custom controls and AI.
 
 ### State controls
 

@@ -69,6 +69,7 @@ safe shape and logs a warning.
 - Gravity scale.
 - Treat as bullet.
 - Rotation locks X/Y/Z.
+- Position locks X/Y/Z.
 
 ## Physics Body conditions
 
@@ -108,11 +109,33 @@ Use this group to create/destroy bodies and to configure collider state.
 
 - Set sync mode (`physics-to-object`, `object-to-physics`, `manual`).
 - Set body position.
+- Set body rotation (Euler degrees) or quaternion.
 - Set linear velocity.
 - Set angular velocity.
 - Set rotation locks.
+- Set position locks.
 
 Use this group to manage body transform and kinematic/dynamic velocity values.
+
+### Joints
+
+- Create distance joint. Two dynamic bodies remain free to translate and orbit as a pair; make one body static when one end should stay fixed in the world.
+- Create revolute joint.
+- Create limited revolute joint. Limits are signed stops relative to the orientation at creation: `-90` to `90` permits 90° each way and 180° stop-to-stop; `-120` to `120` permits 120° each way and 240° stop-to-stop, not 240° from the starting pose in one direction.
+- Create prismatic joint with optional signed translation limits relative to the zero creation position and a velocity motor.
+- Remove all joints.
+
+Joint anchors and axes use world-space coordinates. The selected object's first
+picked instance is connected. Joint actions can run directly in **On start of
+layout** and initialize both bodies before queuing the constraint. Leave
+**Collide connected** set to **No** for the usual joint setup, especially when
+the colliders touch or overlap. For a door, connect the dynamic door to a static
+frame with a limited revolute joint at the hinge position, normally around world Z.
+
+For limited revolute joints, the creation pose is angle zero. The signed stops
+apply to the selected **Other** body's rotation relative to **This** body around
+the supplied axis. They are not absolute Construct Euler angles and are not
+measured from the lower stop.
 
 ### Forces
 
@@ -183,6 +206,7 @@ These values are most useful inside collision trigger events.
 
 - `CollisionLayer`, `CollisionMask`.
 - `RotationLockedX/Y/Z`.
+- `PositionLockedX/Y/Z`.
 - `LastError`.
 
 ## Collision filtering rule
